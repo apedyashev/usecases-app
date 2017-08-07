@@ -1,13 +1,13 @@
-var fs = require('fs'),
-    path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-module.exports = function() {
+module.exports = () => {
   fs.readdirSync(__dirname)
-    .filter(function(file) {
+    .filter((file) => {
       console.log('file', file);
       return (file.indexOf('.') !== 0) && (file !== 'index.js');
     })
-    .forEach(function(file) {
+    .forEach((file) => {
       console.log('Loading model: ' + file);
       require(path.join(__dirname, file));
     });
