@@ -1,0 +1,7 @@
+{
+	"mongoAppDb"  : {
+		"host": "mongodb",
+		"db": "test-task-app",
+		"port": 27017
+	}
+}
