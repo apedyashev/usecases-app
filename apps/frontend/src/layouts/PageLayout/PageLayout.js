@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'injectTapEventPlugin';
 import Snackbar from 'material-ui/Snackbar';
+import TopBar from 'components/TopBar';
 import {destroyMessage} from 'routes/Home/modules/message';
 import styles from './PageLayout.scss';
 
@@ -13,11 +14,8 @@ export const PageLayout = ({children, message, destroyMessage}) => {
 
   return (
     <MuiThemeProvider>
-      <div className="container text-center">
-        <h1>React Redux Starter Kit</h1>
-        <IndexLink to="/" activeClassName="page-layout__nav-item--active">Usecases</IndexLink>
-        {' · '}
-        <Link to="/add" activeClassName="page-layout__nav-item--active">Add</Link>
+      <div className={styles.root}>
+        <TopBar />
         <div className={styles.viewport}>
           {children}
         </div>

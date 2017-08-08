@@ -1,7 +1,7 @@
 module.exports = {
   defaultFont: 'Open Sans',
   hFont: 'Open Sans',
-  primaryColor: '#f58220',
+  primaryColor: '#9D764B',
   secondaryColor: '#94b533',
   textInvertedColor: '#ffffff',
   grey: '#666666',

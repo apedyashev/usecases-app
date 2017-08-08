@@ -2,6 +2,7 @@
 
 .card {
   position: relative;
+  min-height: 200px;
 }
 
 .milestonesCount {
@@ -12,10 +13,4 @@
 
 .clickable {
   cursor: pointer;
-}
-
-@media only screen and (min-width: 1100px) {
-  .card {
-    min-height: 200px;
-  }
 }

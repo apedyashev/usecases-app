@@ -1,0 +1,23 @@
+@import "./src/styles/_base.scss";
+
+.container {
+  overflow: hidden;
+  background-color: $primaryColor;
+  .items {
+    float: right;
+    .item {
+      float: left;
+      text-decoration: none;
+      span {
+        color: #fff !important;
+        font-family: 'Proxima Nova','Arial','Helvetica Neue',sans-serif  !important;
+        text-transform: uppercase !important;
+        font-weight: 400 !important;
+      }
+      border-top: 3px solid $primaryColor;
+    }
+    .active {
+      border-top: 3px solid $secondaryColor;
+    }
+  }
+}
