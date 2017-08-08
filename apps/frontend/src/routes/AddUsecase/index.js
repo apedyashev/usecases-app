@@ -1,7 +1,7 @@
 import {injectReducer} from '../../store/reducers';
 
 export default (store) => ({
-  path : '',
+  path : '/add',
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
@@ -9,18 +9,16 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const HomeContainer = require('./containers/HomeContainer').default;
-      const usecasesReducer = require('./modules/usecases').default;
-      const milestonesReducer = require('./modules/milestones').default;
+      const AddUsecaseContainer = require('./containers/AddUsecaseContainer').default;
+      // const usecasesReducer = require('./modules/usecases').default;
 
       /*  Add the reducer to the store on key 'usecases'  */
-      injectReducer(store, {key: 'usecases', reducer: usecasesReducer});
-      injectReducer(store, {key: 'milestones', reducer: milestonesReducer});
+      // injectReducer(store, {key: 'usecases', reducer: usecasesReducer});
 
       /*  Return getComponent   */
-      cb(null, HomeContainer);
+      cb(null, AddUsecaseContainer);
 
     /* Webpack named bundle   */
-  }, 'usecasesList');
+  }, 'addUsecase');
   },
 });

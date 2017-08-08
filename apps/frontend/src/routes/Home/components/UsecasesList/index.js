@@ -2,10 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // components
-
 import InfiniteList from 'components/InfiniteList';
-
-
 import UsecaseCard from '../UsecaseCard';
 // other
 import styles from './index.scss';

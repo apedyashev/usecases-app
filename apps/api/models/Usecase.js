@@ -44,8 +44,14 @@ const mongoosePaginate = require('mongoose-paginate');
  *         type: number
  */
 const schema = new Schema({
-  title:  String,
-  body:   String,
+  title:  {
+    type: String,
+    required: [true, 'Required'],
+  },
+  body: {
+    type: String,
+    required: [true, 'Required'],
+  },
   milestones: [{
     id: Number,
     name: String,

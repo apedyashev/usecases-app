@@ -2,12 +2,12 @@ import {schema} from 'normalizr';
 import http from 'helpers/http';
 import {createRequestTypes} from 'helpers/action';
 import {listReducer, makeListInitialState} from 'helpers/reducer';
+import {usecaseSchema} from '../../Home/modules/usecases';
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const constants = {
-  load: createRequestTypes('USECASES/LOAD'),
   create: createRequestTypes('USECASES/CREATE'),
 };
 
@@ -15,41 +15,13 @@ export const constants = {
 // ------------------------------------
 // Schemas
 // ------------------------------------
-const milestoneSchema = new schema.Entity('milestones');
-const milestonesSchemaArray = new schema.Array(milestoneSchema);
-const usecaseSchema = new schema.Entity('usecases', {
-  milestones: milestonesSchemaArray
-});
-const usecasesSchemaArray = new schema.Array(usecaseSchema);
 
-/*  This is a thunk, meaning it is a function that immediately
-    returns a function for lazy evaluation. It is incredibly useful for
-    creating async actions, especially when combined with redux-thunk! */
-
-export const loadUsecases = (page, perPage) => {
-  return (dispatch, getState) => {
-    dispatch({type: constants.load.REQUEST});
-
-    http.get({
-      url: 'usecases',
-      query: {page, perPage},
-      shema: {items: usecasesSchemaArray}
-    }).then(({response}) => {
-      dispatch({
-        type: constants.load.SUCCESS,
-        payload: response
-      });
-    }).catch(() => dispatch({type: constants.load.FAILURE}));
-  };
-};
-
-export const createUsecase = (data) => {
+export const createUsecase = (page, perPage) => {
   return (dispatch, getState) => {
     dispatch({type: constants.create.REQUEST});
 
     http.post({
       url: 'usecases',
-      data,
       shema: {item: usecaseSchema}
     }).then(({response}) => {
       dispatch({
@@ -61,7 +33,7 @@ export const createUsecase = (data) => {
 };
 
 export const actions = {
-  loadUsecases,
+  createUsecase,
 };
 
 // ------------------------------------

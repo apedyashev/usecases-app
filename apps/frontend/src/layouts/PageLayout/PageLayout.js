@@ -12,9 +12,9 @@ export const PageLayout = ({children}) => {
     <MuiThemeProvider>
       <div className="container text-center">
         <h1>React Redux Starter Kit</h1>
-        <IndexLink to="/" activeClassName="page-layout__nav-item--active">Home</IndexLink>
+        <IndexLink to="/" activeClassName="page-layout__nav-item--active">Usecases</IndexLink>
         {' · '}
-        <Link to="/counter" activeClassName="page-layout__nav-item--active">Counter</Link>
+        <Link to="/add" activeClassName="page-layout__nav-item--active">Add</Link>
         <div className={styles.viewport}>
           {children}
         </div>

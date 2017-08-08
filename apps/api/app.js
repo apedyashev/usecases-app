@@ -15,15 +15,15 @@ const cors = require('cors');
 //   }
 // });
 
-require('./models')();
-app.use(cors());
-require('./routes')(app);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
+require('./models')();
+app.use(cors());
+require('./routes')(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
