@@ -1,8 +1,9 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const project = require('../project.config')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const precss = require('precss');
+const project = require('../project.config');
 
 const inProject = path.resolve.bind(path, project.basePath)
 const inProjectSrc = (file) => inProject(project.srcDir, file)
@@ -99,12 +100,18 @@ const extractStyles = new ExtractTextPlugin({
 config.module.rules.push({
   test: /\.(sass|scss)$/,
   loader: extractStyles.extract({
-    fallback: 'style-loader',
+    // fallback: 'style-loader',
     use: [
+      {
+        loader: 'style-loader'
+      },
       {
         loader: 'css-loader',
         options: {
           sourceMap: project.sourcemaps,
+          modules: true,
+          importLoaders: 2,
+          localIdentName: '[path][name]__[local]___[hash:base64:5]',
           minimize: {
             autoprefixer: {
               add: true,
@@ -121,6 +128,9 @@ config.module.rules.push({
             sourcemap: project.sourcemaps,
           },
         },
+      },
+      {
+        loader: 'postcss-loader'
       },
       {
         loader: 'sass-loader',
@@ -178,7 +188,20 @@ config.plugins.push(new HtmlWebpackPlugin({
   minify: {
     collapseWhitespace: true,
   },
-}))
+}));
+
+// Postcss
+// ------------------------------------
+config.plugins.push(new webpack.LoaderOptionsPlugin({
+  options: {
+    context: path.resolve(__dirname, `../${project.srcDir}`),
+    postcss: function() {
+      return {
+        plugins: [precss]
+      };
+    }
+  }
+}));
 
 // Development Tools
 // ------------------------------------

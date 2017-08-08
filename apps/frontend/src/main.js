@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import http from 'helpers/http';
 import createStore from './store/createStore'
 import './styles/main.scss'
 
 // Store Initialization
 // ------------------------------------
 const store = createStore(window.__INITIAL_STATE__)
+http.setStore(store);
 
 // Render Setup
 // ------------------------------------
