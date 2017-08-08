@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // components
+import {Helmet} from 'react-helmet';
 import InfiniteList from 'components/InfiniteList';
 import UsecaseCard from '../UsecaseCard';
 // other
@@ -40,6 +41,9 @@ class UsecasesList extends React.Component {
   render() {
     const {usecases, usecasesApiStatus: {hasNextPage, pending, loaded}} = this.props;
     return (<div>
+      <Helmet>
+        <title>Usecases</title>
+      </Helmet>
       <InfiniteList
         items={usecases}
         listClassName={styles.container}

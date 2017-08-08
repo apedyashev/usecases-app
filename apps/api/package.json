@@ -10,28 +10,28 @@
   "dependencies": {
     "body-parser": "1.17.1",
     "cookie-parser": "1.4.3",
-    "cors": "^2.8.4",
+    "cors": "2.8.4",
     "debug": "2.6.3",
     "express": "4.15.2",
     "jade": "1.11.0",
-    "lodash": "^4.17.4",
+    "lodash": "4.17.4",
     "mongodb-migrate": "2.0.2",
-    "mongoose": "^4.11.5",
-    "mongoose-paginate": "^5.0.3",
+    "mongoose": "4.11.5",
+    "mongoose-paginate": "5.0.3",
     "morgan": "1.8.1",
-    "serve-favicon": "2.4.2"
+    "serve-favicon": "2.4.2",
+    "swagger-jsdoc": "1.9.7"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.4.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-config-standard-react": "^5.0.0",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^7.1.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "swagger-jsdoc": "^1.9.7"
+    "babel-eslint": "7.2.3",
+    "eslint": "4.4.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-config-standard-react": "5.0.0",
+    "eslint-plugin-babel": "4.1.2",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-node": "5.1.1",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-react": "7.1.0",
+    "eslint-plugin-standard": "3.0.1"
   }
 }

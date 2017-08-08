@@ -20,6 +20,10 @@ class UsecasesList extends React.Component {
 
   render() {
     return (<div className={styles.root}>
+      <Helmet>
+        <title>Create Usecase</title>
+      </Helmet>
+
       <AddUsecaseForm onSubmit={this.showResults} />
     </div>);
   }
