@@ -21,7 +21,7 @@
 	docker-compose run api npm run migrate
 ```
 
-### 4. install dependencies in the *Frontend* container:
+### 4. install dependencies in the *Frontend* container (grab a coffee - it's gonna take a while):
 ```
 	docker-compose run frontend npm install
 ```
