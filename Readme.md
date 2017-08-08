@@ -23,7 +23,7 @@
 
 ### 4. install dependencies in the *Frontend* container:
 ```
-	docker-compose run frontent npm install
+	docker-compose run frontend npm install
 ```
 
 ### 5. run the app:
