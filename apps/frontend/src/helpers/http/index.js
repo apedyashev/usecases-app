@@ -22,7 +22,7 @@ const http = {
         .query(query)
         .end((err, res) => {
           if (err) {
-            return errorHandler(http.store.dispatch)(err).catch(reject)
+            return errorHandler(http.store.dispatch)(err).catch(reject);
           } else {
             const camelizedJson = camelizeKeys(res.body);
             const response = Object.assign({}, normalize(camelizedJson, shema));

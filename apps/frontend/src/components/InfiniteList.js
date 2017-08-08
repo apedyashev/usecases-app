@@ -1,11 +1,17 @@
 // libs
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // components
 import RaisedButton from 'material-ui/RaisedButton';
 
 
 class InfiniteList extends React.Component {
-  static propTypes = {};
+  static propTypes = {
+    hasNextPage: PropTypes.bool.isRequired,
+    items: PropTypes.array.isRequired,
+    itemRenderer: PropTypes.func.isRequired,
+    loadMoreItems: PropTypes.func.isRequired,
+  };
 
   render() {
     const {items, itemRenderer, loadMoreItems, hasNextPage} = this.props;

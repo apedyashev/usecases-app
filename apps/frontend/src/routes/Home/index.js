@@ -1,4 +1,4 @@
-import { injectReducer } from '../../store/reducers'
+import {injectReducer} from '../../store/reducers';
 
 export default (store) => ({
   path : '',
@@ -9,16 +9,16 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const HomeContainer = require('./containers/HomeContainer').default
-      const reducer = require('./modules/usecases').default
+      const HomeContainer = require('./containers/HomeContainer').default;
+      const reducer = require('./modules/usecases').default;
 
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'usecases', reducer })
+      injectReducer(store, {key: 'usecases', reducer});
 
       /*  Return getComponent   */
-      cb(null, HomeContainer)
+      cb(null, HomeContainer);
 
     /* Webpack named bundle   */
-    }, 'counter')
-  }
-})
+    }, 'counter');
+  },
+});

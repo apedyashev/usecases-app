@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import DuckImage from '../assets/Duck.jpg'

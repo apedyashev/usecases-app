@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { injectReducer } from '../../store/reducers'
 
 export default (store) => ({

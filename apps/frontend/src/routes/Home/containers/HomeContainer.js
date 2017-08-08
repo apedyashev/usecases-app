@@ -1,5 +1,5 @@
-import {connect} from 'react-redux'
-import {loadUsecases} from '../modules/usecases'
+import {connect} from 'react-redux';
+import {loadUsecases} from '../modules/usecases';
 import {usecasesSelector, usecasesApiStatus} from '../selectors/usecases';
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -7,20 +7,20 @@ import {usecasesSelector, usecasesApiStatus} from '../selectors/usecases';
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 
-import UsecasesList from '../components/UsecasesList'
+import UsecasesList from '../components/UsecasesList';
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  loadUsecases
-}
+  loadUsecases,
+};
 
 const mapStateToProps = (state) => ({
   usecases: usecasesSelector(state),
   usecasesApiStatus: usecasesApiStatus(state),
-})
+});
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsecasesList)
+export default connect(mapStateToProps, mapDispatchToProps)(UsecasesList);

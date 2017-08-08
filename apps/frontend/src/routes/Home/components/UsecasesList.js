@@ -1,11 +1,19 @@
 // libs
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // components
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import InfiniteList from 'components/InfiniteList';
 
 class UsecasesList extends React.Component {
-  static propTypes = {};
+  static propTypes = {
+    usecasesApiStatus: PropTypes.shape({
+      nextPage: PropTypes.number.isRequired,
+      hasNextPage: PropTypes.bool.isRequired,
+    }).isRequired,
+    loadUsecases: PropTypes.func.isRequired,
+    usecases: PropTypes.array.isRequired,
+  };
 
   componentDidMount() {
     this.props.loadUsecases();

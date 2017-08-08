@@ -38,29 +38,29 @@ export const loadUsecases = (page, perPage) => {
         type: constants.load.SUCCESS,
         payload: response
       });
-    }).catch(() => dispatch({type: constants.load.FAILURE}))
-  }
-}
+    }).catch(() => dispatch({type: constants.load.FAILURE}));
+  };
+};
 
 export const actions = {
-  loadUsecases
-}
+  loadUsecases,
+};
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-const ACTION_HANDLERS = {
-  [constants.load.REQUEST]: (state, action) => ({...state, pending: true}),
-  [constants.load.SUCCESS]: (state, action) => {
-    return {
-      ...state,
-      pending: false,
-      items: {...state.usecases, ...action.payload.entities.usecases},
-      // milestones: {...state.milestones, ...action.payload.entities.milestones},
-    };
-  },
-  [constants.load.FAILURE]: (state, action) => ({...state, pending: false}),
-}
+// const ACTION_HANDLERS = {
+//   [constants.load.REQUEST]: (state, action) => ({...state, pending: true}),
+//   [constants.load.SUCCESS]: (state, action) => {
+//     return {
+//       ...state,
+//       pending: false,
+//       items: {...state.usecases, ...action.payload.entities.usecases},
+//       // milestones: {...state.milestones, ...action.payload.entities.milestones},
+//     };
+//   },
+//   [constants.load.FAILURE]: (state, action) => ({...state, pending: false}),
+// }
 
 // ------------------------------------
 // Reducer
