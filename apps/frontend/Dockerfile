@@ -5,4 +5,4 @@ ADD ./ /src
 WORKDIR /src
 COPY package.json /src/package.json
 
-RUN npm install
+# RUN npm install
