@@ -8,7 +8,7 @@
 ```
     git clone https://github.com/apedyashev/usecases-app.git
     cd usecases-app
-	docker-compose build
+    docker-compose build
 ```
 
 ### 2. install dependencies in *API* container:
