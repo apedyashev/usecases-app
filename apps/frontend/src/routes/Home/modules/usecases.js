@@ -30,7 +30,7 @@ export const loadUsecases = (page, perPage) => {
   return (dispatch, getState) => {
     dispatch({type: constants.load.REQUEST});
 
-    http.get({
+    return http.get({
       url: 'usecases',
       query: {page, perPage},
       shema: {items: usecasesSchemaArray}
@@ -47,12 +47,12 @@ export const createUsecase = (data) => {
   return (dispatch, getState) => {
     dispatch({type: constants.create.REQUEST});
 
-    http.post({
+    return http.post({
       url: 'usecases',
       data,
       shema: {item: usecaseSchema}
     }).then(({response}) => {
-      dispatch({
+      return dispatch({
         type: constants.create.SUCCESS,
         payload: response
       });

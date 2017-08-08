@@ -12,15 +12,17 @@ export default (store) => ({
       const HomeContainer = require('./containers/HomeContainer').default;
       const usecasesReducer = require('./modules/usecases').default;
       const milestonesReducer = require('./modules/milestones').default;
+      const messageReducer = require('./modules/message').default;
 
       /*  Add the reducer to the store on key 'usecases'  */
       injectReducer(store, {key: 'usecases', reducer: usecasesReducer});
       injectReducer(store, {key: 'milestones', reducer: milestonesReducer});
+      injectReducer(store, {key: 'message', reducer: messageReducer});
 
       /*  Return getComponent   */
       cb(null, HomeContainer);
 
     /* Webpack named bundle   */
-  }, 'usecasesList');
+    }, 'usecasesList');
   },
 });

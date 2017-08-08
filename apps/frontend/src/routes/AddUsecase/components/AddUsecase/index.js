@@ -8,16 +8,15 @@ import styles from './index.scss';
 
 class UsecasesList extends React.Component {
   static propTypes = {
+    createUsecase: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
   }
 
   showResults = (values) => {
-    this.props.createUsecase(values)
+    return this.props.createUsecase(values);
   }
-
-
 
   render() {
     return (<div className={styles.root}>
