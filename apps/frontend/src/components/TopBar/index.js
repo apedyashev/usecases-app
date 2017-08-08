@@ -1,11 +1,11 @@
 // libs
-import React, {PropTypes} from 'react';
+import React from 'react';
 // components
 import {IndexLink, Link} from 'react-router';
 import MenuItem from 'material-ui/MenuItem';
 import styles from './index.scss';
 
-export default function TopNavAuthenticated({user, signOut}) {
+export default function TopNavAuthenticated() {
   return (<div className={styles.container}>
     <div className={styles.items}>
       <IndexLink to="/" className={styles.item} activeClassName={styles.active}>

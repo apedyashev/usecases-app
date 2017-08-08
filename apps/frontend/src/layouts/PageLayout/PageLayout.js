@@ -1,12 +1,14 @@
+// libs
 import React from 'react';
-import {IndexLink, Link} from 'react-router';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'injectTapEventPlugin';
+// components
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Snackbar from 'material-ui/Snackbar';
 import TopBar from 'components/TopBar';
 import {destroyMessage} from 'routes/Home/modules/message';
+// other
 import styles from './PageLayout.scss';
 
 export const PageLayout = ({children, message, destroyMessage}) => {
