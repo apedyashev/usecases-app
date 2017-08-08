@@ -15,7 +15,6 @@ export default (store) => ({
       const messageReducer = require('../Home/modules/message').default;
 
       /*  Add the reducer to the store on key 'usecases'  */
-      // injectReducer(store, {key: 'usecases', reducer: usecasesReducer});
       injectReducer(store, {key: 'usecases', reducer: usecasesReducer});
       injectReducer(store, {key: 'milestones', reducer: milestonesReducer});
       injectReducer(store, {key: 'message', reducer: messageReducer});

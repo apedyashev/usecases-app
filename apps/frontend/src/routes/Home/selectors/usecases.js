@@ -24,5 +24,5 @@ export const usecasesSelector = createSelector(
 
 export const usecasesApiStatus = createSelector(
   (state) => state.usecases,
-  (usecasesState) => pick(usecasesState, ['pending', 'loaded', 'hasNextPage', 'nextPage', 'pending']),
+  (usecasesState) => pick(usecasesState, ['pending', 'loaded', 'hasNextPage', 'curPage', 'nextPage', 'pending']),
 );

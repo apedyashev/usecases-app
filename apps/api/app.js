@@ -5,17 +5,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 
-// app.use((req, res, next) => {
-//   if (req.app.get('env') === 'development') {
-//     setTimeout(() => {
-//       next();
-//     }, 2000);
-//   } else {
-//     next();
-//   }
-// });
-
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

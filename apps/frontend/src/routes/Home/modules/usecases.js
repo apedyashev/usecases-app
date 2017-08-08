@@ -7,6 +7,7 @@ import {listReducer, makeListInitialState} from 'helpers/reducer';
 // Constants
 // ------------------------------------
 export const constants = {
+  RESET_ORDER: 'RESET_ORDER',
   load: createRequestTypes('USECASES/LOAD'),
   create: createRequestTypes('USECASES/CREATE'),
 };
@@ -60,6 +61,12 @@ export const createUsecase = (data) => {
   };
 };
 
+export function functionResetOrder() {
+  return {
+    type: constants.RESET_ORDER,
+  };
+}
+
 export const actions = {
   loadUsecases,
 };
@@ -67,31 +74,27 @@ export const actions = {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-// const ACTION_HANDLERS = {
-//   [constants.load.REQUEST]: (state, action) => ({...state, pending: true}),
-//   [constants.load.SUCCESS]: (state, action) => {
-//     return {
-//       ...state,
-//       pending: false,
-//       items: {...state.usecases, ...action.payload.entities.usecases},
-//       // milestones: {...state.milestones, ...action.payload.entities.milestones},
-//     };
-//   },
-//   [constants.load.FAILURE]: (state, action) => ({...state, pending: false}),
-// }
+const ACTION_HANDLERS = {
+  [constants.RESET_ORDER]: (state, action) => {
+    return {
+      ...state,
+      order: [],
+    };
+  },
+};
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
 const initialState = makeListInitialState();
 export default function counterReducer (state = initialState, action) {
-  return listReducer({
+  const newState = listReducer({
     state,
     action,
     entity: 'usecases',
     requestTypes: constants.load
   });
-  // const handler = ACTION_HANDLERS[action.type]
-  //
-  // return handler ? handler(state, action) : state
+
+  const handler = ACTION_HANDLERS[action.type];
+  return handler ? handler(newState, action) : newState;
 }

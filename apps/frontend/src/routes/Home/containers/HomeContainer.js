@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {loadUsecases} from '../modules/usecases';
+import {loadUsecases, functionResetOrder} from '../modules/usecases';
 import {usecasesSelector, usecasesApiStatus} from '../selectors/usecases';
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -15,6 +15,7 @@ import UsecasesList from '../components/UsecasesList';
 
 const mapDispatchToProps = {
   loadUsecases,
+  functionResetOrder,
 };
 
 const mapStateToProps = (state) => ({

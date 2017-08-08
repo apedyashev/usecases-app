@@ -15,10 +15,12 @@ class UsecasesList extends React.Component {
       hasNextPage: PropTypes.bool.isRequired,
     }).isRequired,
     loadUsecases: PropTypes.func.isRequired,
+    functionResetOrder: PropTypes.func.isRequired,
     usecases: PropTypes.array.isRequired,
   };
 
   componentDidMount() {
+    this.props.functionResetOrder();
     this.props.loadUsecases();
   }
 

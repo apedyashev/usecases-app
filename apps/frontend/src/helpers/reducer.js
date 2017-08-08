@@ -7,6 +7,7 @@ export const makeListInitialState = (additionalValues = {}) => {
     pending: false,
     loaded: false,
     hasNextPage: true,
+    curPage: 1,
     nextPage: 1,
     items: {},
     order: [],
@@ -33,6 +34,7 @@ export const listReducer = ({state, action, entity, requestTypes}) => {
         pending: false,
         loaded: true,
         hasNextPage: pagination.page < pagination.pages,
+        curPage: pagination.page,
         nextPage: (pagination.page < pagination.pages) ? (pagination.page + 1) : pagination.page,
         items: {
           ...state.items,

@@ -75,7 +75,7 @@ router.get('/', (req, res) => {
   const page = +req.query.page || 1;
   Usecase.paginate({}, {page, limit: perPage}).then((result) => {
     res.json({
-      items: result.docs,
+      items:  result.docs,
       pagination: _.omit(result, 'docs'),
     });
   }).catch(() => {
