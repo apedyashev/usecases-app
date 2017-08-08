@@ -1,7 +1,19 @@
 import {createSelector} from 'reselect';
 import pick from 'lodash/pick';
+import mapValues from 'lodash/mapValues';
+import {milestonesItemsSelector} from './milestones';
 
-const usecasesItemsSelector = (state) => state.usecases.items;
+const usecasesItemsSelector = createSelector(
+  (state) => state.usecases.items,
+  milestonesItemsSelector,
+  (usecases, milestones) => {
+    return mapValues(usecases, (usecase) => {
+      const usecaseCopy = {...usecase};
+      usecaseCopy.milestones = usecase.milestones.map((id) => milestones[id]);
+      return usecaseCopy;
+    });
+  }
+);
 const usecasesOrderSelector = (state) => state.usecases.order;
 
 export const usecasesSelector = createSelector(
@@ -12,5 +24,5 @@ export const usecasesSelector = createSelector(
 
 export const usecasesApiStatus = createSelector(
   (state) => state.usecases,
-  (usecasesState) => pick(usecasesState, ['pending', 'loaded', 'hasNextPage', 'nextPage']),
+  (usecasesState) => pick(usecasesState, ['pending', 'loaded', 'hasNextPage', 'nextPage', 'pending']),
 );

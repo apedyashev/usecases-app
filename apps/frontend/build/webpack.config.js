@@ -98,6 +98,42 @@ const extractStyles = new ExtractTextPlugin({
 });
 
 config.module.rules.push({
+  test: /\.(css)$/,
+  loader: extractStyles.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'style-loader'
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: project.sourcemaps,
+          minimize: {
+            autoprefixer: {
+              add: true,
+              remove: true,
+              browsers: ['last 2 versions'],
+            },
+            discardComments: {
+              removeAll : true,
+            },
+            discardUnused: false,
+            mergeIdents: false,
+            reduceIdents: false,
+            safe: true,
+            sourcemap: project.sourcemaps,
+          },
+        },
+      },
+      {
+        loader: 'postcss-loader'
+      },
+    ],
+  })
+});
+
+config.module.rules.push({
   test: /\.(sass|scss)$/,
   loader: extractStyles.extract({
     // fallback: 'style-loader',

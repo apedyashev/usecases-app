@@ -1,0 +1,10 @@
+@import "./src/styles/_base.scss";
+
+.root {
+  text-align: center;
+  color: $fontcolor;
+  .spinner {
+    margin: 10px 20px;
+  }
+
+}

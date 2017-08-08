@@ -2,8 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // components
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+
 import InfiniteList from 'components/InfiniteList';
+
+
+import UsecaseCard from '../UsecaseCard';
+// other
+import styles from './index.scss';
 
 class UsecasesList extends React.Component {
   static propTypes = {
@@ -21,30 +26,29 @@ class UsecasesList extends React.Component {
 
   loadMoreUsecases = () => {
     const {usecasesApiStatus: {nextPage}} = this.props;
-
     this.props.loadUsecases(nextPage);
   }
 
-  rowRenderer(usecase) {
+  rowRenderer = (usecase) => {
     return (
-      <Card key={usecase.id}>
-        <CardHeader
-          title={usecase.title}
-          subtitle="Subtitle"
-        />
-        <CardText>
-          {usecase.body}
-        </CardText>
-      </Card>
+      <div
+        className={styles.item}
+        key={usecase.id}
+      >
+        <UsecaseCard usecase={usecase} />
+      </div>
     );
   }
 
   render() {
-    const {usecases, usecasesApiStatus: {hasNextPage}} = this.props;
+    const {usecases, usecasesApiStatus: {hasNextPage, pending, loaded}} = this.props;
     return (<div>
       <InfiniteList
         items={usecases}
+        listClassName={styles.container}
         hasNextPage={hasNextPage}
+        pending={pending}
+        loaded={loaded}
         itemRenderer={this.rowRenderer}
         loadMoreItems={this.loadMoreUsecases}
       />

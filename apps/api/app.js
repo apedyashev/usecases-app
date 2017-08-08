@@ -5,6 +5,16 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 
+// app.use((req, res, next) => {
+//   if (req.app.get('env') === 'development') {
+//     setTimeout(() => {
+//       next();
+//     }, 2000);
+//   } else {
+//     next();
+//   }
+// });
+
 require('./models')();
 app.use(cors());
 require('./routes')(app);

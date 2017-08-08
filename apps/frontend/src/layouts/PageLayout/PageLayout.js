@@ -3,7 +3,7 @@ import {IndexLink, Link} from 'react-router';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'injectTapEventPlugin';
-import './PageLayout.scss';
+import styles from './PageLayout.scss';
 
 export const PageLayout = ({children}) => {
   injectTapEventPlugin();
@@ -15,7 +15,7 @@ export const PageLayout = ({children}) => {
         <IndexLink to="/" activeClassName="page-layout__nav-item--active">Home</IndexLink>
         {' · '}
         <Link to="/counter" activeClassName="page-layout__nav-item--active">Counter</Link>
-        <div className="page-layout__viewport">
+        <div className={styles.viewport}>
           {children}
         </div>
       </div>

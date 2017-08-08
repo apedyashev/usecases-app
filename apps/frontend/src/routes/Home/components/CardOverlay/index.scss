@@ -1,0 +1,18 @@
+.root {
+  z-index: 99999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;//rgba(19, 17, 17, 0.51);
+  height: 100%;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.actionBar {
+  padding: 5px 15px 0 0;
+  overflow: hidden;
+}

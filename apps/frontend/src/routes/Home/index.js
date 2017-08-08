@@ -10,10 +10,12 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const HomeContainer = require('./containers/HomeContainer').default;
-      const reducer = require('./modules/usecases').default;
+      const usecasesReducer = require('./modules/usecases').default;
+      const milestonesReducer = require('./modules/milestones').default;
 
-      /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, {key: 'usecases', reducer});
+      /*  Add the reducer to the store on key 'usecases'  */
+      injectReducer(store, {key: 'usecases', reducer: usecasesReducer});
+      injectReducer(store, {key: 'milestones', reducer: milestonesReducer});
 
       /*  Return getComponent   */
       cb(null, HomeContainer);
