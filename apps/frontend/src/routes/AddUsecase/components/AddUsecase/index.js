@@ -2,11 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // components
+import {Helmet} from 'react-helmet';
 import AddUsecaseForm from '../AddUsecaseForm';
 // other
 import styles from './index.scss';
 
-class UsecasesList extends React.Component {
+class AddUsecase extends React.Component {
   static propTypes = {
     createUsecase: PropTypes.func.isRequired,
   };
@@ -29,4 +30,4 @@ class UsecasesList extends React.Component {
   }
 }
 
-export default UsecasesList;
+export default AddUsecase;
